@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="h-full flex flex-col">
-      <NavBar />
+      <NavBar items={items} error={error} loading={loading} />
       <Outlet context={{ items, setItems, error, loading }} />
     </div>
   );

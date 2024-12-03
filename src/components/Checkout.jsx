@@ -6,6 +6,11 @@ const Checkout = () => {
   const { items, setItems, error, loading } = useOutletContext();
   if (loading) return <>Loading...</>;
   if (error) return <>Error fetching items...</>;
+  let cost = 0.0;
+  for (let i = 0; i < items.length; i++) {
+    cost += items[i].price * items[i].quantity;
+  }
+  cost = cost.toFixed(2);
 
   function clearCart() {
     let copy = items.map((item) => {
@@ -52,6 +57,7 @@ const Checkout = () => {
     <>
       <div className="flex-1 bg-slate-400 flex gap-8 p-12 flex-col items-center">
         {itemCards}
+        <p className="text-3xl font-bold">Total cost: ${cost}</p>
         <button
           className="text-white bg-lime-700 w-64 h-20 rounded-lg hover:bg-lime-900 text-3xl"
           onClick={clearCart}

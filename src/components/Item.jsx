@@ -12,7 +12,10 @@ const Item = ({ item, addToCart }) => {
     setQty(1);
   }
   return (
-    <div className="h-96 w-80 bg-white flex flex-col items-center p-4 rounded-lg shadow-lg gap-4 text-center">
+    <div className="relative h-96 w-80 bg-white flex flex-col items-center p-4 rounded-lg shadow-lg gap-4 text-center">
+      <div className="absolute top-0 left-0 text-xl bg-green-600 text-white p-2 rounded-tl-lg rounded-br-lg shadow-2xl">
+        ${item.price.toFixed(2)}
+      </div>
       <img src={item.image} alt="" className="h-48 w-48" />
       <h2 className="font-bold">{item.title}</h2>
       <div className="flex justify-between w-full mt-auto text-lg">

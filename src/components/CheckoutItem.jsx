@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import icon from "../assets/delete-outline.svg";
 import { useState } from "react";
-import { toast, Bounce } from "react-toastify";
 
 const CheckoutItem = ({ item, changeQty }) => {
   const [qty, setQty] = useState(item.quantity);
@@ -21,6 +20,10 @@ const CheckoutItem = ({ item, changeQty }) => {
         </h2>
       </div>
       <div className="flex items-center gap-8">
+        <div>
+          <p>Price:</p>
+          <p>${item.price.toFixed(2)}</p>
+        </div>
         <div className="flex items-center gap-8">
           <p>Quantity:</p>
           <input
